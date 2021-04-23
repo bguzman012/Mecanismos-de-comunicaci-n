@@ -1,0 +1,5 @@
+com\mycompany\activemqq\MessageReceiver.class
+com\mycompany\activemqq\MainSenMessages.class
+com\mycompany\activemqq\MessageSender.class
+com\mycompany\activemqq\MainSenMessagesConsumidor.class
+com\mycompany\activemqq\MessageSenderConsumidor.class
