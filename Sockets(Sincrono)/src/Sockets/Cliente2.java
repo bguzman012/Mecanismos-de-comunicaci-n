@@ -23,7 +23,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 
-public class Cliente extends JFrame implements Runnable{
+public class Cliente2 extends JFrame implements Runnable{
 
 	private JPanel contentPane;
 	private JTextField mensaje;
@@ -32,6 +32,7 @@ public class Cliente extends JFrame implements Runnable{
 	private JTextField miNick;
 	private JLabel lblPara;
 	private JTextField ip;
+	
 	private JTextField puerto;
 
 	/**
@@ -41,9 +42,9 @@ public class Cliente extends JFrame implements Runnable{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Cliente frame = new Cliente();
+					Cliente2 frame = new Cliente2();
 					frame.setVisible(true);
-					
+					frame.setTitle("Cliente2");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -54,12 +55,11 @@ public class Cliente extends JFrame implements Runnable{
 	/**
 	 * Create the frame.
 	 */
-	public Cliente() {
+	public Cliente2() {
+		this.setTitle("Cliente 2");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("Cliente");
 		setBounds(100, 100, 474, 319);
 		contentPane = new JPanel();
-		
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -86,7 +86,7 @@ public class Cliente extends JFrame implements Runnable{
 					
 					ObjectOutputStream objeto = new ObjectOutputStream(miScoket.getOutputStream());
 					objeto.writeObject(detalleMensaje);
-					miScoket.close();
+					//miScoket.close();
 					
 					
 				} catch (UnknownHostException e) {
@@ -116,13 +116,13 @@ public class Cliente extends JFrame implements Runnable{
 		contentPane.add(miNick);
 		miNick.setColumns(10);
 		
-		/*lblPara = new JLabel("IP:");
-		lblPara.setBounds(329, 76, 59, 18);
+		/*lblPara = new JLabel("Para:");
+		lblPara.setBounds(329, 116, 59, 18);
 		contentPane.add(lblPara);
 		
 		ip = new JTextField();
 		ip.setColumns(10);
-		ip.setBounds(324, 99, 114, 22);
+		ip.setBounds(324, 146, 114, 22);
 		contentPane.add(ip);*/
 		
 		JLabel lblNewLabel_1 = new JLabel("Puerto");
@@ -141,7 +141,7 @@ public class Cliente extends JFrame implements Runnable{
 	@Override
 	public void run() {
 		try {
-			ServerSocket serverSocket = new ServerSocket(9090);
+			ServerSocket serverSocket = new ServerSocket(9091);
 			Socket cliente;
 			DetalleMensaje mensajeRecibido;
 			while(true) {
